@@ -1,4 +1,4 @@
-package com.example.tarmacgrid;
+package com.example.tarmacgrid.employee;
 
 
 public class EmployeeNotFoundException extends RuntimeException {

@@ -1,7 +1,0 @@
-package com.example.tarmacgrid;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-interface EmployeeRepository extends JpaRepository<Employee, Long> {
-
-}
