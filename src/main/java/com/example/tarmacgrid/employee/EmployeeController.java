@@ -1,9 +1,16 @@
+/*
+By adding the spring-boot-starter-data-rest dependency automagically fulfill all the required
+CRUD + pagination that I needed and was trying to implement.
+Therefore I prefer to keep classes as commented instead of deleting them.
+
 package com.example.tarmacgrid.employee;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.Resources;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +24,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.stream.Collectors;
@@ -34,12 +42,24 @@ class EmployeeController {
 		this.assembler = assembler;
 	}
 
-	// Aggregate root
-
 	@GetMapping("/employees")
 	Resources<Resource<Employee>> all() {
 
 		List<Resource<Employee>> employees = repository.findAll().stream()
+			.map(assembler::toResource)
+			.collect(Collectors.toList());
+
+		return new Resources<>(employees,
+			linkTo(methodOn(EmployeeController.class).all()).withSelfRel());
+	}
+	
+	@GetMapping("/list")
+//	Resources<Resource<Employee>> allWithPagination(
+//			@RequestParam(value="page", defaultValue="0") int page,
+//			@RequestParam(value="limit", defaultValue="15") int limit) {
+	Resources<Resource<Employee>> allWithPagination(Pageable p) {
+//		List<Resource<Employee>> employees = repository.findAll(PageRequest.of(page, limit)).stream()
+		List<Resource<Employee>> employees = repository.findAll(p).stream()
 			.map(assembler::toResource)
 			.collect(Collectors.toList());
 
@@ -57,8 +77,6 @@ class EmployeeController {
 			.body(resource);
 	}
 
-	// Single item
-	
 	@GetMapping("/employees/{id}")
 	Resource<Employee> one(@PathVariable Long id) throws EmployeeNotFoundException{
 
@@ -97,3 +115,4 @@ class EmployeeController {
 		return ResponseEntity.noContent().build();
 	}
 }
+*/
