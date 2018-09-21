@@ -28,12 +28,6 @@ public class ViewController {
 	}
 	
 	@GetMapping("/grid")
-	public String grid(Model model) {
-		
-		
-	
-		model.addAttribute("all", this.repository.findAll());
-		return "grid";
-	}
+	public String grid(Model model) { return "grid"; }
 
 }

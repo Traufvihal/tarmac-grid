@@ -22,7 +22,7 @@
 	<div class="grid-container fluid">
 
 		<div class="grid-x grid-margin-x align-center">
-			<div class="cell auto centered">
+			<div class="cell auto centered large-6">
 			<table>
 			<tr th:each="e : ${all}">
 				<td data-th-text="${e.name}">
@@ -42,6 +42,14 @@
 	<script src="js/vendor/foundation.min.js"></script>
 	<script>
       $(document).foundation();
+
+      $(document).ready(function() {
+    	    $.ajax({
+    	        url: "localhost:8080/employees?page=0&size=25"
+    	    }).then(function(data) {
+    	       console.log(data);
+    	    });
+    	});
     </script>
 
 </body>
