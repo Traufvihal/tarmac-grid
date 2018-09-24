@@ -4,7 +4,7 @@
 
 ### Spring boot
 
-I've used Spring since is a framkework that I'm familiary, however not knowing of the current potential it has.
+I've used Spring since is a framkework that I'm familiar with, however not knowing of the current potential it has.
 
 After some research (official docs, StackOverflow and tutorials) I've found that the Spring data-rest sub-module implements **out-of-the-box** all the features I needed.
 
