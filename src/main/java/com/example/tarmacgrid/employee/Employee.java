@@ -24,14 +24,6 @@ public class Employee {
 	private String pictureUrl;
 
 	public Employee() {};
-
-//	public Employee(String name, String role, String city) {
-//		super();
-//		this.name = name;
-//		this.role = role;
-//		this.city = city;
-//		this.pictureUrl = name.trim().replaceAll("\\ s", "-").toLowerCase();
-//	}
 	
 	public Employee(Employee e) {
 		super();
